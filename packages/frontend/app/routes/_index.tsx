@@ -11,7 +11,7 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <div className="App">
-      <p>Stay Tuned</p>
+      <p>Stay Tuned Dev</p>
     </div>
   );
 }
