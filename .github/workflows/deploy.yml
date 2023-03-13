@@ -42,14 +42,14 @@ jobs:
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
-      run: pnpm deploy -- --stage prod
+      run: pnpm run deploy --stage prod
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Deploy to Dev
       if: env.RAW_BRANCH == 'dev'
-      run: pnpm deploy -- --stage dev
+      run: pnpm run deploy --stage dev
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
