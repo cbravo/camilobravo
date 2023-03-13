@@ -8,8 +8,6 @@ on:
 env:
   CI: true
   AWS_DEFAULT_REGION: us-east-1
-  # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
   deploy:
@@ -44,15 +42,14 @@ jobs:
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
-      # run: sst deploy --stage=prod
-      run: echo 'deploying to prod'
+      run: sst deploy --stage prod
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Deploy to Dev
       if: env.RAW_BRANCH == 'dev'
-      run: echo 'deploying to dev'
+      run: sst deploy --stage dev
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
