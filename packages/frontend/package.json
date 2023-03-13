@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix build",
+    "dev": "sst env remix dev",
+    "start": "remix-serve build"
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.14.1",
+    "@remix-run/react": "^1.14.1",
+    "@remix-run/serve": "^1.14.1",
+    "aws-sdk": "^2.1333.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.14.1",
+    "@remix-run/eslint-config": "^1.14.1",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "eslint": "^8.27.0",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
