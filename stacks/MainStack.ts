@@ -6,8 +6,8 @@ export function MainStack({ stack }: StackContext) {
   const site = new RemixSite(stack, "RemixSite", {
     path: "packages/frontend",
     customDomain: {
-      domainName: "camilobravo.com",
-      domainAlias: "www.camilobravo.com",
+      domainName: stack.stage === "prod" ? "camilobravo.com" : `${stack.stage}.camilobravo.com`,
+      domainAlias: stack.stage === "prod" ? "www.camilobravo.com" : undefined,
     },
     environment: {
       REGION: stack.region,
