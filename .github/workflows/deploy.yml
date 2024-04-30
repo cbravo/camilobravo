@@ -33,7 +33,7 @@ jobs:
         cache: 'npm'
 
     - name: Install Dependencies
-      run: rm -rf node_modules && npm install --frozen-lockfile
+      run: rm -rf .git/hooks && npm install --frozen-lockfile
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
