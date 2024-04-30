@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.8.0]
+        node-version: [18.18.2]
 
     steps:
     - name: Checkout Repo
@@ -29,7 +29,7 @@ jobs:
     - name: Setup NodeJS
       uses: actions/setup-node@v3
       with:
-        node-version: 18.8.0
+        node-version: 18.18.2
         cache: 'npm'
 
     - name: Install Dependencies
