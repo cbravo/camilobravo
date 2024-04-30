@@ -33,18 +33,18 @@ jobs:
         cache: 'npm'
 
     - name: Install Dependencies
-      run: rm -rf .git/hooks && npm install --frozen-lockfile
+      run: npm install --frozen-lockfile
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
-      run: npx sst deploy --stage=production
+      run: npm run sst deploy --stage=production
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Deploy to Dev
       if: env.RAW_BRANCH == 'dev'
-      run: npx sst deploy --stage=dev
+      run: npm run sst deploy --stage=dev
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
