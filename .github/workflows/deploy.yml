@@ -54,8 +54,8 @@ jobs:
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
-      run: npm run deploy:prod
+      run: AWS_PROFILE=personal npm run deploy:prod
     
     - name: Deploy to Dev
       if: env.RAW_BRANCH == 'dev'
-      run: npm run deploy:dev
+      run: AWS_PROFILE=personal npm run deploy:dev
