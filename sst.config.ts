@@ -1,14 +1,25 @@
-import { SSTConfig } from "sst";
-import { MainStack } from "./stacks/MainStack";
+/// <reference path="./.sst/platform/config.d.ts" />
 
-export default {
-  config(_input) {
+export default $config({
+  app(input) {
     return {
       name: "camilobravo",
-      region: "us-east-1",
+      removal: input?.stage === "production" ? "retain" : "remove",
+      home: "aws",
+      providers: {
+        aws: {
+          region: "us-east-1",
+          profile: "personal",
+        },
+      }
     };
   },
-  stacks(app) {
-    app.stack(MainStack);
-  }
-} satisfies SSTConfig;
+  async run() {
+    new sst.aws.Nextjs("MyWeb", {
+      domain: {
+        name: $app.stage === "production" ? "camilobravo.com" : "dev.camilobravo.com",
+      },
+    });
+  },
+  
+});
