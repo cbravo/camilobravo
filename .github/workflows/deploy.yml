@@ -38,19 +38,15 @@ jobs:
     - name: Install Dependencies
       run: npm install --frozen-lockfile
 
-    - name: List Profiles
-      run: aws configure list-profiles
+    - name: Add profile credentials to ~/.aws/credentials
+      run: |
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile personal
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile personal
 
     - name: Deploy to Prod
       if: env.RAW_BRANCH == 'main'
       run: npm run deploy:prod
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Deploy to Dev
       if: env.RAW_BRANCH == 'dev'
       run: npm run deploy:dev
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
