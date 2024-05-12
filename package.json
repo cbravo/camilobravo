@@ -6,10 +6,7 @@
     "build": "next build",
     "dev": "AWS_PROFILE=personal sst dev next dev",
     "lint": "next lint",
-    "start": "next start",
-    "deploy": "AWS_PROFILE=personal sst deploy",
-    "deploy:prod": "AWS_PROFILE=personal sst deploy --stage=production",
-    "deploy:dev": "AWS_PROFILE=personal sst deploy --stage=dev"
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.2.3",
