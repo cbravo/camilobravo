@@ -17,7 +17,7 @@ export default $config({
   async run() {
     new sst.aws.Nextjs("MyWeb", {
       domain: {
-        name: $app.stage === "production" ? "camilobravo.com" : "staging.camilobravo.com",
+        name: $app.stage === "production" ? "camilobravo.com" : $app.stage === "dev" ? "staging.camilobravo.com" : "dev.camilobravo.com",
       },
     });
   },
