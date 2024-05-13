@@ -3,7 +3,7 @@
 
 import { gsap } from "gsap";
 import React from "react";
-import FrameLoader from "../helpers/FrameLoader";
+import FrameLoader from "../helpers/FrameLoader.js";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
