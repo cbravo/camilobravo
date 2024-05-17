@@ -23,14 +23,12 @@ class FrameLoader {
 
     console.log(`[${this.id}] FramePlayer constructor`);
 
-    // this.initLoad();
+    this.initLoad();
   }
 
-  // initLoad() {
-  //   console.log(`[${this.id}] initTimeline`, JSON.stringify(this.frames));
-
-  //   this.goToFrame(this.frames.frame);
-  // }
+  initLoad() {
+    this.goToFrame(this.requestedFrame);
+  }
 
   handleOnLoad(frameIndex) {
     const imageState = this.imageStates[frameIndex];

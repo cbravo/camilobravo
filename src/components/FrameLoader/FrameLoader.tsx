@@ -18,11 +18,9 @@ export default function FrameLoaderWrapper() {
   useGSAP(() => {
     gsap.registerPlugin(useGSAP);
     gsap.registerPlugin(ScrollTrigger);
-    // if (RenderCountRef.current > 0) return;
     RenderCountRef.current++;
     const renderCount = RenderCountRef.current;
 
-    console.log(`[${renderCount}] useGSAP ----------- mount`);
     const indexStart = 10;
     frameLoaderRef.current = frameLoaderRef.current || new FrameLoader({
       container: document.getElementById("myCanvas"),
@@ -50,7 +48,6 @@ export default function FrameLoaderWrapper() {
       onUpdate: function (self) {
         console.log('gsap UPDATE!', frames.frame)
         frameLoader.goToFrame(frames.frame);
-        // 
       },
     });
 
